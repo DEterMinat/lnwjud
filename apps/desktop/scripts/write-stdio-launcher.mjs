@@ -9,7 +9,7 @@ const cmdPath = path.join(buildDir, 'lnwjud-mcp-stdio.cmd');
 const shellPath = path.join(buildDir, 'lnwjud-mcp-stdio.sh');
 const nodeMajor = Number.parseInt(process.versions.node.split('.')[0] ?? '', 10);
 
-if (nodeMajor !== 24) throw new Error(`lnwjud packaged stdio requires the build runtime to be Node.js 24.x; got ${process.versions.node}`);
+if (nodeMajor < 20) throw new Error(`lnwjud packaged stdio requires Node.js >= 20.x; got ${process.versions.node}`);
 
 const windowsContents = `@echo off
 setlocal
